@@ -1,0 +1,155 @@
+/*
+Title       :  Flexible Box Model Demo
+Author      :  Peter PayteR Gašparík
+Date        :  18.09.2012
+Version     :  1.0.0
+*/
+
+body {
+    /* Na stred */
+    margin: 0px auto;
+
+    /* max-width a min-width nám limitujú možné šírky stránky, môžeme vymazať ak chceme plne flexibilný layout */
+    max-width: 1600px;
+    min-width: 960px;
+}
+
+#wrapper {
+    margin: 20px;
+}
+
+/* Štýly pre flexibilné menu */
+#main-menu ul {
+    /* Nastavíme box model pre ul ako rodičovský element */
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+
+    /* Memu bude horizontálne */
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -ms-box-orient: horizontal;
+    box-orient: horizontal;
+
+    /* Defaultné ul štýly prepísať  */
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    /* Dôležité! Vo Firefoxe rodičovský element treba roztiahnuť na celú šírku */
+    width: 100%;
+}
+
+#main-menu ul li {
+    /* Dôležité! Toto spraví ten efekt aby sa elementy roztiahli */
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+
+    /* li je defaultne inline, treba zmeniť */
+    display: block;
+}
+
+#main-menu ul li a {
+    display: block;
+    padding: 10px 15px;
+}
+
+/*
+Header
+*/
+#header h1 {
+    margin: 0px;
+    padding: 20px;
+}
+
+/*
+Main
+*/
+#main {
+    /* Container pre hlavný content musí byť tiež ako flexible box */
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+}
+
+#main .article,
+#main .side {
+    /* Natiahnuť elementy */
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+
+    padding: 10px;
+}
+
+#main .article {
+    /* Chceme, keď v dokumente je bočné menu za článkom, aby bolo zobrazené vľavo */
+    -webkit-box-ordinal-group: 2;
+    -moz-box-ordinal-group: 2;
+    -ms-box-ordinal-group: 2;
+    box-ordinal-group: 2;
+}
+
+#main .side.menu {
+    /* Chceme, keď v dokumente je bočné menu za článkom, aby bolo zobrazené vľavo */
+    -webkit-box-ordinal-group: 1;
+    -moz-box-ordinal-group: 1;
+    -ms-box-ordinal-group: 1;
+    box-ordinal-group: 1;
+
+    /* Menu bude mať fixnú šírku */
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -ms-box-flex: 0;
+    box-flex: 0;
+    width: 180px;
+
+    display: block;
+}
+
+#main .side.blocks-right {
+    /* Bočné bloky na koniec */
+    -webkit-box-ordinal-group: 3;
+    -moz-box-ordinal-group: 3;
+    -ms-box-ordinal-group: 3;
+    box-ordinal-group: 3;
+
+    /* Tiež budú mať fixnú šírku */
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -ms-box-flex: 0;
+    box-flex: 0;
+    width: 160px;
+}
+
+/*
+Footer
+*/
+#footer {
+    /* Footer ako flexible box */
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    width: 100%;
+}
+
+#footer .footer-box {
+    /* Natiahnuť všetky elementy */
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -ms-box-flex: 1;
+    box-flex: 1;
+    padding: 20px;
+}
+
+#footer .footer-box.footer-4 {
+    /* Posledný je fixný, pretože tam je text a predchádzajúce nepotrebujú toľko miesta */
+    -webkit-box-flex: 0;
+    -moz-box-flex: 0;
+    -ms-box-flex: 0;
+    box-flex: 0;
+    width: 600px;
+}
