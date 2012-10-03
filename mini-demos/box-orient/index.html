@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>box-flex | Flexible Box Model Layout Demo</title>
+        <link rel="stylesheet" type="text/css" href="../../css/normalize.css" />
+        <style>
+            html{
+                background: #ddd;
+            }
+
+            /* 
+                wrapper nad box elementom je potrebný pre firefox, pretože sa 
+                nevie vycentrovať na stred
+            */
+            #wrapper{
+                background: #fff;
+                margin: 20px auto;
+
+                width: 580px;
+            }
+
+            #flexbox{
+                /*
+                    Dôležitá definícia flexboxu pre rodičovský element
+                */
+                display: -webkit-box;
+                display: -moz-box;
+                display: -ms-box;
+                display: -o-box;
+                display: box;
+
+                /*
+                    nastavíme orientáciu vertikálne
+                */                
+                -webkit-box-orient: vertical;
+                -moz-box-orient: vertical;
+                -ms-box-orient: vertical;
+                -o-box-orient: vertical;
+                box-orient: vertical;
+
+            }
+
+            #flexbox .item{
+                border: 1px solid #888;
+
+                /*
+                    box-flex je potrebný pre udanie rozmerov, či už relatívnych 
+                    alebo absolútnych v px
+                */
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                -ms-box-flex: 1;
+                -o-box-flex: 1;
+                box-flex: 1;
+
+                padding: 10px;
+            }
+
+        </style>
+        <script src="../../js/jquery.min.js" type="text/javascript"></script>
+        <script src="../../js/flexie.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="flexbox">
+                <div class="item box1">Box 1</div>
+                <div class="item box2">Box 2</div>
+                <div class="item box3">Box 3</div>
+            </div>
+        </div>
+    </body>
+</html>
